@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>专业月嫂简历</title>
+    <style>
+		/* 好评专用画廊样式 */
+		.review-gallery {
+		    display: flex;
+		    flex-direction: column;
+		}
+		
+		.review-row {
+		    display: flex;
+		    justify-content: space-between;
+		    margin-bottom: 10px;
+		}
+		
+		.review-item {
+		    width: 49%;
+		    border-radius: 5px;
+		    overflow: hidden;
+		    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+		
+		.review-item img {
+		    width: 100%;
+		    height: 150px; /* 可根据需要调整高度 */
+		    object-fit: cover;
+		}
+		/* 证书画廊专用样式 */
+		.certificate-gallery {
+		    display: flex;
+		    flex-direction: column;
+		    margin-bottom: 15px;
+		}
+		
+		.certificate-row {
+		    display: flex;
+		    justify-content: space-between;
+		    margin-bottom: 10px;
+		}
+		
+		.center-row {
+		    justify-content: center;
+		}
+		
+		.certificate-item {
+		    width: 32%;
+		    margin: 0 0.5%;
+		    border-radius: 5px;
+		    overflow: hidden;
+		    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		    transition: transform 0.3s ease;
+		}
+		
+		.certificate-item:hover {
+		    transform: scale(1.03);
+		}
+		
+		.center-row .certificate-item {
+		    width: 48%;
+		    margin: 0 1%;
+		}
+		
+		/* 保持原有图片样式 */
+		.gallery-image {
+		    width: 100%;
+		    height: 120px; /* 可以调整为您需要的高度 */
+		    object-fit: cover;
+		    display: block;
+		}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f9f3e9;
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+        }
+        .resume-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            display: flex;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border-bottom: 1px solid #eee;
+        }
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .name-section {
+            margin-left: 15px;
+            flex: 1;
+        }
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 20px;
+            flex: 2;
+        }
+        .info-item {
+            width: 50%;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .info-label {
+            color: #666;
+            display: inline-block;
+            width: 70px;
+        }
+        .section {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d63384;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #d63384;
+        }
+        .content-item {
+            margin-bottom: 15px;
+        }
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #d63384;
+        }
+        .skill-list {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .skill-list li {
+            margin-bottom: 8px;
+            position: relative;
+            list-style-type: none;
+        }
+        .skill-list li:before {
+            content: "•";
+            color: #d63384;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .contact {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: #d63384;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 -5px;
+        }
+        .image-item {
+            width: calc(33.33% - 10px);
+            margin: 0 5px 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .gallery-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- 第一部分：基本信息 -->
+        <div class="header">
+            <div class="name-section">
+                <div class="name">黄玉芳</div>
+                <img src="images/head.jpg" alt="头像" class="avatar">
+            </div>
+            <div class="info-section">
+                <div class="info-item"><span class="info-label">年龄：</span>44岁</div>
+                <div class="info-item"><span class="info-label">民族：</span>汉族</div>
+                <div class="info-item"><span class="info-label">生肖：</span>鸡</div>
+                <div class="info-item"><span class="info-label">星座：</span>白羊座</div>
+                <div class="info-item"><span class="info-label">地址：</span>杭州</div>
+                <div class="info-item"><span class="info-label">学历：</span>初中</div>
+                <div class="info-item"><span class="info-label">工作年份：</span>4年</div>
+                <div class="info-item"><span class="info-label">带过宝宝：</span>20+</div>
+            </div>
+        </div>
+        
+        <!-- 第二部分：个人信息 -->
+        <div class="section">
+            <div class="section-title">自我介绍</div>
+            <p>2022年经过专业培训，通过考核，在三甲医院从事母婴护理兼住家月嫂；2023年至今上户陪护20余个宝宝，其中有早产儿、巨大儿、低体重、双胞胎等。本人性格开朗，好相处，善良有爱心，不计较，能吃苦能快速适应新环境，做事认真负责</p>
+        </div>
+        
+        <!-- 第三部分：专业技能（已修改） -->
+        <div class="section">
+            <div class="section-title">专业技能</div>
+            <div class="content-item">
+                <div class="item-title">【宝宝护理技能】</div>
+                <ul class="skill-list">
+                    <li>带宝宝经验丰富，给宝宝洗澡抚触、被动操、排气操</li>
+                    <li>脐带护理、红臀护理、湿疹热疹护理</li>
+                    <li>黄疸鉴别与护理，溢奶、吐奶、呛奶的预防</li>
+                    <li>大小便观察并基于二便情况观察宝宝生长发育情况</li>
+                    <li>给宝宝建立良好的科学喂养和睡眠习惯，鼓励亲喂，拒绝过度喂养</li>
+                </ul>
+            </div>
+            <div class="content-item">
+                <div class="item-title">【产妇护理技能】</div>
+                <ul class="skill-list">
+                    <li>协助产妇进行个人卫生清洁，做好会阴冲洗及伤口护理，帮助产妇擦身观察恶露</li>
+                    <li>指导产妇正确哺乳姿势，帮助通乳催乳，解决乳房胀痛等问题</li>
+                    <li>主动与产妇交流，缓解产妇焦虑状态，及时安抚产妇，避免产后抑郁的出现</li>
+                </ul>
+            </div>
+        </div>
+        
+
+        
+<!-- 第五部分：持有证书 -->
+<div class="section">
+    <div class="section-title">持有证书</div>
+    <div class="certificate-gallery">
+        <div class="certificate-row">
+            <div class="certificate-item">
+                <img src="images/zhengshu (1).jpg" alt="证书1" class="gallery-image" onclick="openModal(this)">
+            </div>
+            <div class="certificate-item">
+                <img src="images/zhengshu (2).jpg" alt="证书2" class="gallery-image" onclick="openModal(this)">
+            </div>
+            <div class="certificate-item">
+                <img src="images/zhengshu (3).jpg" alt="证书3" class="gallery-image" onclick="openModal(this)">
+            </div>
+        </div>
+        <div class="certificate-row center-row">
+            <div class="certificate-item">
+                <img src="images/zhengshu (4).jpg" alt="证书4" class="gallery-image" onclick="openModal(this)">
+            </div>
+            <div class="certificate-item">
+                <img src="images/zhengshu (5).jpg" alt="证书5" class="gallery-image" onclick="openModal(this)">
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <!-- 第六部分：我与宝宝快乐时光 -->
+        <div class="section">
+            <div class="section-title">我与宝宝快乐时光</div>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="images/baby (1).jpg" alt="宝宝照片1" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/baby (2).jpg" alt="宝宝照片2" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/baby (3).jpg" alt="宝宝照片3" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/baby (4).jpg" alt="宝宝照片4" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/baby (5).jpg" alt="宝宝照片5" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/baby (6).jpg" alt="宝宝照片6" class="gallery-image" onclick="openModal(this)">
+                </div>
+				<div class="image-item">
+				    <img src="images/baby (7).jpg" alt="宝宝照片6" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/baby (8).jpg" alt="宝宝照片6" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/baby (9).jpg" alt="宝宝照片6" class="gallery-image" onclick="openModal(this)">
+				</div>
+            </div>
+        </div>
+        
+        <!-- 第七部分：月子餐展示 -->
+        <div class="section">
+            <div class="section-title">月子餐展示</div>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="images/food (19).jpg" alt="月子餐1" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/food (23).jpg" alt="月子餐2" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/food (24).jpg" alt="月子餐3" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/food (25).jpg" alt="月子餐4" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/food (27).jpg" alt="月子餐5" class="gallery-image" onclick="openModal(this)">
+                </div>
+                <div class="image-item">
+                    <img src="images/food (5).jpg" alt="月子餐6" class="gallery-image" onclick="openModal(this)">
+                </div>
+				<div class="image-item">
+				    <img src="images/food (1).jpg" alt="月子餐7" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (10).jpg" alt="月子餐8" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (12).jpg" alt="月子餐9" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (13).jpg" alt="月子餐10" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (16).jpg" alt="月子餐11" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (17).jpg" alt="月子餐12" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (18).jpg" alt="月子餐13" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (2).jpg" alt="月子餐14" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (21).jpg" alt="月子餐15" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (22).jpg" alt="月子餐16" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (26).jpg" alt="月子餐17" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (28).jpg" alt="月子餐18" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (29).jpg" alt="月子餐19" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (3).jpg" alt="月子餐20" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (4).jpg" alt="月子餐21" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (7).jpg" alt="月子餐22" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (8).jpg" alt="月子餐23" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (9).jpg" alt="月子餐24" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (6).jpg" alt="月子餐25" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (11).jpg" alt="月子餐26" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (14).jpg" alt="月子餐27" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (15).jpg" alt="月子餐28" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food (20).jpg" alt="月子餐29" class="gallery-image" onclick="openModal(this)">
+				</div>
+				<div class="image-item">
+				    <img src="images/food(30).jpg" alt="月子餐30" class="gallery-image" onclick="openModal(this)">
+				</div>
+            </div>
+        </div>
+        
+<!-- 第八部分：来自宝妈好评 -->
+<div class="section">
+    <div class="section-title">来自宝妈好评</div>
+    <div class="review-gallery">
+        <!-- 第一行 -->
+        <div class="review-row">
+            <div class="review-item">
+                <img src="images/review (1).jpg" alt="好评1" class="gallery-image" onclick="openModal(this)">
+            </div>
+            <div class="review-item">
+                <img src="images/review (2).jpg" alt="好评2" class="gallery-image" onclick="openModal(this)">
+            </div>
+        </div>
+        <!-- 第二行 -->
+        <div class="review-row">
+            <div class="review-item">
+                <img src="images/review (3).jpg" alt="好评3" class="gallery-image" onclick="openModal(this)">
+            </div>
+            <div class="review-item">
+                <img src="images/review (4).jpg" alt="好评4" class="gallery-image" onclick="openModal(this)">
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <!-- 联系方式 -->
+        <div class="contact">
+            <p>如有需要，欢迎联系</p>
+			<p>电话：15988896629（微信同号）</p>
+            <a href="tel:13800138000" class="contact-btn">立即预约</a>
+        </div>
+    </div>
+
+    <!-- 图片放大查看模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // 打开图片模态框
+        function openModal(img) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+        
+        // 关闭图片模态框
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            var modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
